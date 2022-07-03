@@ -1,0 +1,137 @@
+.main {
+  height: 100vh;
+  display: flex;
+}
+
+.main__left {
+  position: relative;
+  flex: 0.8;
+  background-image: url("../Images/engelBack.png");
+}
+
+.main__right {
+  flex: 0.2;
+}
+
+.main__videos {
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.main__controls {
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #d2d2d2;
+}
+
+.main__right {
+  background-color: white;
+  border-left: 1px solid white;
+}
+
+.main__controls__block {
+  display: flex;
+}
+
+.main__controls__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 20px 0 20px;
+  padding: 8px 10px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  background-color: #343434;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+
+.main__controls__button:hover {
+  border: 1px white solid;
+  color: white;
+  text-decoration: none;
+}
+
+.main__controls__button {
+  font-size: 24px;
+}
+
+.main__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__header {
+  padding-top: 15px;
+  color: black;
+  text-align: center;
+}
+
+.main__chat_window {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 10px;
+  background-color: rgba(218, 213, 213, 0.8);
+  border-radius: 5%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.messages {
+  color: black;
+  list-style: none;
+}
+
+.main__message_container {
+  padding: 22px 12px;
+  display: flex;
+}
+
+.main__message_container input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  color: black;
+}
+
+.ContactUsernameCall {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 2vw;
+  color: black;
+}
+
+.pic_logo_call {
+  position: relative;
+  width: 20vw;
+}
+
+.end_video_call {
+  color: #eb534b;
+}
+
+.main__phone_button {
+  transform: rotate(225deg);
+}
+
+.unmute,
+.stop {
+  color: #cc3b33;
+}

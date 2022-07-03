@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      body {
+        color: white;
+        font-family: "SansSerif BoldOblique";
+        background-size: 100% 100%;
+        background-image: url("../Images/engelBack.png");
+        background-repeat: no-repeat;
+      }
+      @import url("https://fonts.googleapis.com/css?family=Source+Sa-ns+Pro:200,300,400,600");
+
+      body {
+        font-family: "Source Sans Pro", sans-serif;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      ::placeholder {
+        color: white;
+      }
+
+      .section1 {
+        position: relative;
+        float: left;
+        height: 45vw;
+        width: 40vw;
+        padding-top: 4vw;
+        z-index: -2;
+      }
+
+      .section1 .big_bubble {
+        position: relative;
+        width: 85%;
+        height: 70%;
+        border-radius: 20%;
+        background: white;
+        text-align: center;
+        background-color: white;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        float: left;
+        margin-left: 4vw;
+      }
+
+      .section1 .big_bubble:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      .section1 .big_bubble .content_wraper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        padding-top: 0;
+      }
+
+      .section1 .big_bubble .content_wraper .sign_up_txt {
+        position: relative;
+        width: 100%;
+        font-size: 2vw;
+        color: rgb(2, 110, 172);
+      }
+
+      .section1 .big_bubble .content_wraper .last_and_first_name_txtbox {
+        margin-top: 0.5vw;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .section1 .big_bubble .content_wraper .username_and_email_txtbox {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .section1 .big_bubble .content_wraper .password_and_confirm_txtbox {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-left: 1vw;
+      }
+
+      .section1 .big_bubble .content_wraper .txtbox {
+        width: 85%;
+        height: 2vw;
+        color: white;
+        background-color: rgb(2, 110, 172);
+        outline: none;
+        border-radius: 10vw;
+        border: 1px solid white;
+        margin-bottom: 2.4vw;
+        font-size: 1.1vw;
+        padding: 0.5%;
+        padding-left: 1vw;
+      }
+
+      .section1 .big_bubble .content_wraper .input-group-text {
+        margin-top: 0.68vw;
+      }
+
+      .section1 .big_bubble .content_wraper .submit_btn {
+        position: relative;
+        width: 100%;
+        margin-top: 2.5vh;
+      }
+
+      .section1 .big_bubble .content_wraper .submit_btn .btn {
+        width: 60%;
+        background: none;
+        border: 3px solid rgb(2, 110, 172);
+        border-radius: 15px;
+        color: rgb(2, 110, 172);
+        padding-top: 2%;
+        padding-bottom: 2%;
+        transition-duration: 450ms;
+        transition-property: background;
+        position: relative;
+        bottom: 15%;
+        font-size: 1vw;
+      }
+      .section1 .big_bubble .content_wraper .submit_btn .btn:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(2, 110, 172);
+      }
+
+      .section1 .big_bubble .pointer_triangle {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 15vw solid transparent;
+        border-right: 15vw solid transparent;
+        border-bottom: 15vw solid white;
+        z-index: -1;
+        transform: rotate(-23deg);
+        align-self: flex-start;
+        margin-top: 8vw;
+        margin-left: -5vw;
+      }
+
+      .section2 {
+        position: relative;
+        float: left;
+        height: 45vw;
+        width: 20vw;
+        padding-top: 25vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: -2;
+      }
+
+      .section2 .small_bubble {
+        position: relative;
+        width: 80%;
+        height: 16vw;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section2 .small_bubble .pointer_triangle_right {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 9w solid transparent;
+        border-right: 9vw solid transparent;
+        border-bottom: 9vw solid white;
+        z-index: -1;
+        transform: rotate(30deg);
+        align-self: flex-start;
+        margin-top: 6vw;
+        margin-left: 8vw;
+      }
+
+      .section2 .small_bubble .have_account_paragraph {
+        position: relative;
+        width: 100%;
+        font-size: 1.4vw;
+        color: rgb(2, 110, 172);
+        text-align: center;
+        margin-top: 5vw;
+      }
+
+      .section3 {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        height: 45vw;
+        width: 39vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -2vw;
+      }
+
+      .section3 .pic_logo {
+        position: relative;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: -3vw;
+      }
+
+      .section3 .pic_beside {
+        width: 120%;
+        margin-top: -7vw;
+        margin-left: -5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      a {
+        color: black;
+        transition-duration: 450ms;
+        transition-property: background;
+        position: relative;
+        bottom: 17%;
+        font-size: 1.2vw;
+      }
+      a:hover {
+        cursor: pointer;
+        color: dimgray;
+      }
+
+      .question {
+        font-size: 1.2vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section1">
+        <div class="big_bubble">
+          <div class="content_wraper">
+            <div class="sign_up_txt">
+              <h1>Sign Up</h1>
+            </div>
+
+            <div class="last_and_first_name_txtbox">
+              <strong>
+                <input
+                  type="text"
+                  id="last_name_signup"
+                  name="last_name"
+                  class="txtbox"
+                  placeholder="Last Name:"
+                />
+              </strong>
+
+              <strong>
+                <input
+                  type="text"
+                  id="first_name_signup"
+                  name="first_name"
+                  class="txtbox"
+                  placeholder="First Name:"
+                />
+              </strong>
+            </div>
+
+            <div class="username_and_email_txtbox">
+              <strong>
+                <input
+                  type="username"
+                  id="username_signup"
+                  name="username"
+                  class="txtbox"
+                  placeholder="Username:"
+                />
+              </strong>
+
+              <strong>
+                <input
+                  type="email"
+                  id="email_signup"
+                  name="email"
+                  class="txtbox"
+                  placeholder="Email:"
+                />
+              </strong>
+            </div>
+
+            <div class="password_and_confirm_txtbox">
+              <strong>
+                <input
+                  id="password_signup"
+                  name="password"
+                  type="password"
+                  class="txtbox"
+                  placeholder="Password:"
+                />
+              </strong>
+
+              <strong>
+                <input
+                  id="confirm_password_signup"
+                  name="password"
+                  type="password"
+                  class="txtbox"
+                  placeholder="Confirm Password:"
+                />
+              </strong>
+              <span class="input-group-text"
+                ><i class="far fa-eye-slash" id="togglePassword"></i
+              ></span>
+            </div>
+
+            <div class="submit_btn">
+              <button id="signup_btn" type="submit" class="btn">
+                <strong>Sign Up</strong>
+              </button>
+            </div>
+          </div>
+          <div class="pointer_triangle"></div>
+        </div>
+      </div>
+
+      <div class="section2">
+        <div class="small_bubble">
+          <div class="have_account_paragraph">
+            <strong><p class="question">Have an account?</p></strong>
+            <strong><a href="page_login.html">Sign In</a></strong>
+          </div>
+          <div class="pointer_triangle_right"></div>
+        </div>
+      </div>
+
+      <div class="section3">
+        <img class="pic_logo" src="../Images/Talk2MeLogo.png" />
+        <img class="pic_beside" src="../Images/pic_registration.png" />
+      </div>
+    </div>
+
+    <script>
+      const togglePassword = document.querySelector("#togglePassword");
+      const passwords = document.getElementsByName("password");
+
+      togglePassword.addEventListener("click", function () {
+        // toggle the type attribute
+        passwords.forEach((password) => {
+          const type =
+            password.getAttribute("type") === "password" ? "text" : "password";
+          password.setAttribute("type", type);
+        });
+
+        // toggle the eye icon
+        this.classList.toggle("fa-eye");
+        this.classList.toggle("fa-eye-slash");
+      });
+
+      const signupBtn = document.getElementById("signup_btn");
+
+      signupBtn.addEventListener("click", async function () {
+        const Lname = document.getElementById("last_name_signup").value;
+        const Fname = document.getElementById("first_name_signup").value;
+        const username = document.getElementById("username_signup").value;
+        const email = document.getElementById("email_signup").value;
+        const pw = document.getElementById("password_signup").value;
+        const confirm_pw = document.getElementById(
+          "confirm_password_signup"
+        ).value;
+
+        if (pw == confirm_pw) {
+          var user = await axios.post("http://192.168.1.124:3030/userSignup", {
+            Lname,
+            Fname,
+            username,
+            email,
+            pw,
+            confirm_pw,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: " ",
+            text: "password and password verification are not the same",
+          });
+        }
+
+        var stringAns = "";
+        console.log(user.data);
+
+        if (typeof user.data.errors == "undefined" && pw == confirm_pw) {
+          Swal.fire({
+            icon: "success",
+            title: "",
+            text: "Sign up Successfully!",
+          }).then(function () {
+            window.location = "page_login.html";
+          });
+        } else {
+          for (let i = 0; i < user.data.errors.length; i++) {
+            let error = user.data.errors[i].message;
+            if (error == "Validation len on Lname failed") {
+              stringAns += "Last name is too short, \n";
+            } else if (error == "Validation len on Fname failed") {
+              stringAns += "First name is too short, " + "\n";
+            } else if (error == "Validation isAlpha on Lname failed") {
+              stringAns += "Last name should contain only letters, " + "\n";
+            } else if (error == "Validation isAlpha on Fname failed") {
+              stringAns += "First name should contain only letters, " + "\n";
+            } else if (error == "Validation len on username failed") {
+              stringAns +=
+                "Username must be between 5 to 20 characters, " + "\n";
+            } else if (error == "username must be unique") {
+              stringAns += "existing username, " + "\n";
+            } else if (error == "Validation isEmail on email failed") {
+              stringAns += "Invalid email, " + "\n";
+            } else if (error == "email must be unique") {
+              stringAns += "Existing email, " + "\n";
+            } else if (error == "Validation is on pw failed") {
+              stringAns +=
+                "password must contain 8 characters, including letters and numbers, " +
+                "\n";
+            } else if (pw != confirm_pw) {
+              stringAns +=
+                "password and password verification are not the same, " + "\n";
+            }
+          }
+
+          const replacedStringAns = stringAns.slice(0, -3) + ".";
+
+          console.log(replacedStringAns);
+          Swal.fire({
+            icon: "error",
+            title: " ",
+            text: replacedStringAns,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
